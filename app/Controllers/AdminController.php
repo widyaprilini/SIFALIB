@@ -109,9 +109,16 @@ class AdminController extends BaseController
                 ]);
             }
             return redirect()->to('/dashboard');
-        
-    
-        
+        }
     }
-}
+
+    public function detail_publication (){
+        return view('admin/detail_publications');
+    }
+
+    public function post_subject(){
+        return view('admin/post_subjects');
+    }
+
+
 }
