@@ -14,7 +14,7 @@ class LibraryModel extends Model{
         // OR $this->db = db_connect();
     }
     public function showAllDashboard(){
-        return $this->select('title, year, author, type')->findAll();
+        return $this->select('id,title, year, author, type')->findAll();
     }
 
 }

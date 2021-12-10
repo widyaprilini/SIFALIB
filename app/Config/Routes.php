@@ -42,6 +42,10 @@ $routes->get('/signin', 'SigninController::index');
 $routes->get('/dashboard', 'AdminController::index',['filter' => 'authGuard']);
 $routes->get('/post-publications', 'AdminController::post_publications_view',['filter' => 'authGuard']);
 $routes->post('/post-publications', 'AdminController::post_publications',['filter' => 'authGuard']);
+$routes->get('/post-subject', 'AdminController::post_subject',['filter' => 'authGuard']);
+$routes->get('/detail-publication', 'AdminController::detail_publication',['filter' => 'authGuard']);
+$routes->get('/edit-publications/(:any)', 'AdminController::edit_publications/$1',['filter' => 'authGuard']);
+$routes->post('/update-publications/(:any)', 'AdminController::update_publications/$1',['filter' => 'authGuard']);
 $routes->get('/logout', 'SigninController::logout');
 /*
  * --------------------------------------------------------------------
