@@ -35,7 +35,8 @@
     <!-- Self-CSS -->
     <link rel="stylesheet" href="../css/admin/post-publications.css" />
     <!-- Self-CSS -->
-    <title>Tambah Publikasi</title>
+    <title>SIFALB - ADMIN | Tambah Publikasi</title>
+    
   </head>
   <body>
     <main>
@@ -110,7 +111,7 @@
         </div>
         <div class="content border mt-3">
           <form
-            action="<?php echo base_url(); ?>/post-publications"
+            action="/post-publications"
             method="post"
             enctype="multipart/form-data"
           >
@@ -202,9 +203,15 @@
                 </label>
               </div>
               <?php endforeach;?>
+              <?php if(session()->getFlashdata('error_subject')):?>
+                <div class="invalid feedback" style="color: red;">
+                    <?= session()->getFlashdata('error_subject') ?>
+                </div>
+            <?php endif;?>
             </div>
             <div class="form-group mb-3 ">
               <label for="sel1">Tipe Publikasi :</label>
+              
               <select  id="sel1" name="type" required 
                 style="width: 100%; height: 40px; border-radius: 5px; border-color: rgb(206, 212, 218)">
                 <option value="Laporan KP/Magang">Laporan KP/Magang</option>
@@ -215,9 +222,15 @@
                   Laporan Pasca Pelatihan
                 </option>
               </select>
+              <?php if(session()->getFlashdata('refill')):?>
+                <div class="invalid feedback" style="color: red;">
+                    <?= session()->getFlashdata('refill') ?>
+                </div>
+            <?php endif;?>
             </div>
             <div class="form-group mb-3">
               <label for="sel1">Berkas Publikasi :</label>
+             
               <input
                 type="file"
                 accept="application/pdf"
@@ -236,6 +249,11 @@
               />
               <div class="invalid-feedback">
                 <?= $validation->getError('file'); ?>
+                <?php if(session()->getFlashdata('refill')):?>
+                <div class="invalid feedback" style="color: red;">
+                    <?= session()->getFlashdata('refill') ?>
+                </div>
+            <?php endif;?>
               </div>
             </div>
 

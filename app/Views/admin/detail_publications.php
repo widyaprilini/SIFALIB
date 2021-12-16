@@ -35,7 +35,7 @@
     <!-- Self-CSS -->
     <link rel="stylesheet" href="../css/admin/detail-publications.css" />
     <!-- Self-CSS -->
-    <title>Tambah Publikasi</title>
+    <title>SIFALB - ADMIN | Detail Publikasi</title>
   </head>
   <body>
     <main>
@@ -113,17 +113,25 @@
             style="font-size: 50px; color: #488ce0"
             >drive_file_rename_outline</span
           >
+         
           <h1 class="text-center m-0 mt-1">
             &nbsp;&nbsp;DETAIL PUBLIKASI SIFALIB
           </h1>
         </div>
         <div class="content border mt-3">
-          <form class="mt-5 mb-4">
+        <?php if(session()->getFlashdata('success')):?>
+                <div class="alert alert-success">
+                    <?= session()->getFlashdata('success') ?>
+                </div>
+            <?php endif;?>
+            
+          <form class="mt-5 mb-4" action="/update-publication/<?= $publication['id'] ?>" enctype="multipart/form-data" method="post">
             <div class="form-group row mb-4">
               <button
                 type="button"
                 class="btn btn-secondary col-sm-1 d-flex align-items-center"
                 style="height: 30px"
+                onclick="history.back()"
               >
                 <span class="material-icons-round" style="font-size: 18px">
                   arrow_back</span
@@ -136,10 +144,20 @@
               <div class="col-sm-10 mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control <?=
+                    ($validation->hasError('title'))?
+                    'is-invalid'
+                    :
+                    '';
+                    ?>"
                   id="title"
-                  value="Algoritma LALR Parser dalam Mendeteksi Struktur Kalimat Tunggal Bahasa Indonesia dengan Menggunakan POS Tagging"
+                  name="title"
+                  value="<?= $publication['title'] ?>"
+                  
                 />
+                <div class="invalid-feedback">
+                  <?= $validation->getError('title'); ?>
+                </div>
               </div>
             </div>
             <div class="form-group row">
@@ -149,10 +167,20 @@
               <div class="col-sm-10 mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control <?=
+                    ($validation->hasError('author'))?
+                    'is-invalid'
+                    :
+                    '';
+                    ?>"
                   id="author"
-                  value="Muhammad Sholeh, M. Raihan Almenata"
+                  name="author"
+                  value="<?= $publication['author'] ?>"
+                  
                 />
+                <div class="invalid-feedback">
+                  <?= $validation->getError('author'); ?>
+                </div>
               </div>
             </div>
             <div class="form-group row">
@@ -162,10 +190,20 @@
               <div class="col-sm-10 mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control <?=
+                    ($validation->hasError('year'))?
+                    'is-invalid'
+                    :
+                    '';
+                    ?>"
                   id="year-publicated"
-                  value="2018"
+                  name="year"
+                  value="<?= $publication['year'] ?>"
+                  
                 />
+                <div class="invalid-feedback">
+                  <?= $validation->getError('year'); ?>
+                </div>
               </div>
             </div>
             <div class="form-group row">
@@ -178,27 +216,39 @@
                   id="abstract"
                   cols="20"
                   rows="5"
+                  name="abstract"
                   class="form-control"
-                ></textarea>
+                ><?= $publication['abstract'] ?></textarea>
               </div>
             </div>
             <div class="form-group row mb-3">
               <label for="subject" class="col-sm-2 col-form-label"
                 >Subjek Publikasi</label
               >
+              <?php foreach($subjects as $sub) :?>
               <div class="checkbox col-sm-10 d-flex align-items-center">
                 <label class="d-flex flex-row align-items-center col-sm-1"
                   ><input
                     type="checkbox"
-                    value=""
+                    value="<?= $sub['id']?>"
                     name="subject_id[]"
+                    <?php foreach($sub_checked as $checked): 
+                                if($sub['id'] === $checked['subject_id']){echo 'checked';}
+                            endforeach;?>
                   />
-                  <h5>Psikologi</h5>
+                  <h5><?= $sub['subject_name']?></h5>
                 </label>
-                
+
               </div>
+              <?php endforeach;?>
+              <?php if(session()->getFlashdata('error_subject')):?>
+                <div class="invalid feedback" style="color: red;">
+                    <?= session()->getFlashdata('error_subject') ?>
+                </div>
+            <?php endif;?>
             </div>
             <div class="form-group row mb-2">
+              
               <label for="title" class="col-sm-2 col-form-label"
                 >Jenis Publikasi</label
               >
@@ -214,13 +264,11 @@
                     border-color: rgb(206, 212, 218);
                   "
                 >
-                  <option value="Laporan KP/Magang">Laporan KP/Magang</option>
-                  <option value="Skripsi/TA">Skripsi/TA</option>
-                  <option value="Tesis/Disertasi">Tesis/Disertasi</option>
-                  <option value="Jurnal/Buku">Jurnal/Buku</option>
-                  <option value="Lapora Pasca Pelatihan">
-                    Laporan Pasca Pelatihan
-                  </option>
+                <option value="Laporan KP/Magang" <?php if($publication['type']== "Laporan KP/Magang"){ echo 'selected'; } ?>>Laporan KP/Magang</option>
+                <option value="Skripsi/TA" <?php if($publication['type']== "Skripsi/TA"){ echo 'selected'; } ?>>Skripsi/TA</option>
+                <option value="Tesis/Disertasi" <?php if($publication['type']== "Tesis/Disertasi"){ echo 'selected'; } ?>>Tesis/Disertasi</option>
+                <option value="Jurnal/Buku" <?php if($publication['type']== "Jurnal/Buku"){ echo 'selected'; } ?>>Jurnal/Buku</option>
+                <option value="Laporan Pasca Pelatihan" <?php if($publication['type']== "Laporan Pasca Pelatihan"){ echo 'selected'; } ?>>Laporan Pasca Pelatihan</option>
                 </select>
               </div>
             </div>
@@ -229,6 +277,9 @@
                 >Berkas Publikasi</label
               >
               <div class="col-sm-9 mb-3" style="padding-right: 0px">
+              <input type="hidden" value="<?= $old_file['file']?>" name=old_file>
+              
+              Berkas lama : <a href="/my-pdf/<?= $old_file['file']?> " target="blank"><?= $old_file['file']?></a> jika ingin mengubah silakan isi form di bawah ini.
                 <input
                   type="file"
                   accept="application/pdf"
@@ -248,7 +299,7 @@
                     border-top-left-radius: 5px;
                     border-bottom-left-radius: 5px;
                   "
-                  required
+                  
                 />
                 <div class="invalid-feedback">
                   <?= $validation->getError('file'); ?>
@@ -280,18 +331,20 @@
                   delete
                 </span>
               </button>
+              
             </div>
             <div class="form-group col d-flex justify-content-center">
-              <button type="button" class="btn btn-danger" style="width: 100px">
-                Hapus
-              </button>
+              <a href="/delete-publication/<?= $publication['id'] ?>">
+              <button type="button" class="btn btn-danger" style="width: 200px">
+                Hapus Publikasi Ini
+              </button></a>
               <div class="space mx-2"></div>
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary"
-                style="width: 100px"
+                style="width: 200px"
               >
-                Simpan
+                Simpan Perubahan
               </button>
             </div>
           </form>
@@ -299,16 +352,5 @@
       </div>
     </main>
     <!-- Right Content -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const rows = document.querySelectorAll("tr[data-href]");
-
-        rows.forEach((row) => {
-          row.addEventListener("click", () => {
-            window.location.href = row.dataset.href;
-          });
-        });
-      });
-    </script>
   </body>
 </html>

@@ -33,19 +33,40 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', 'Home::index');
+$routes->get('/', 'HomeController::index');
  //sehingga class library dapat menggunakan method di API
-$routes->group('/', function ($routes) {
-    $routes->resource("library");
+$routes->group('/library', function ($routes) {
+    $routes->resource("libraryController");
 });
+//front search
+$routes->post('/sifalibsearch', 'LibraryController::search');
+//detail search
+$routes->get('/publication-detail/(:any)', 'LibraryController::show/$1');
+//signin admin
 $routes->get('/signin', 'SigninController::index');
+//dashboard admin
 $routes->get('/dashboard', 'AdminController::index',['filter' => 'authGuard']);
+//search data admin
+$routes->post('/search', 'AdminController::search',['filter' => 'authGuard']);
+//add new publication view admin
 $routes->get('/post-publications', 'AdminController::post_publications_view',['filter' => 'authGuard']);
+//add new publications to db admin
 $routes->post('/post-publications', 'AdminController::post_publications',['filter' => 'authGuard']);
-$routes->get('/post-subject', 'AdminController::post_subject',['filter' => 'authGuard']);
-$routes->get('/detail-publication', 'AdminController::detail_publication',['filter' => 'authGuard']);
-$routes->get('/edit-publications/(:any)', 'AdminController::edit_publications/$1',['filter' => 'authGuard']);
-$routes->post('/update-publications/(:any)', 'AdminController::update_publications/$1',['filter' => 'authGuard']);
+//detail/view edit publications admin
+$routes->get('/detail-publication/(:any)', 'AdminController::edit_publication_view/$1',['filter' => 'authGuard']);
+//update data publications to db admin
+$routes->post('/update-publication/(:any)', 'AdminController::update_publication/$1',['filter' => 'authGuard']);
+//delete data publications from db admin
+$routes->get('/delete-publication/(:any)', 'AdminController::delete_publication/$1',['filter' => 'authGuard']);
+//Showing PDF
+$routes->get('/my-pdf/(:any)', 'AdminController::pdf_view/$1');
+//delete subject from db admin
+$routes->get('/delete-subject/(:any)', 'AdminController::delete_subject/$1',['filter' => 'authGuard']);
+//add new subject view admin
+$routes->get('/post-subject', 'AdminController::post_subject_view',['filter' => 'authGuard']);
+//add new subject to db
+$routes->post('/post-subject', 'AdminController::post_subject',['filter' => 'authGuard']);
+//logout from admin dashboard admin
 $routes->get('/logout', 'SigninController::logout');
 /*
  * --------------------------------------------------------------------

@@ -4,28 +4,54 @@ namespace App\Controllers;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\LibraryModel;
 
-class Library extends BaseController
+class LibraryController extends BaseController
 {
     use ResponseTrait;
     function __construct(){
-        $this->model = model(LibraryModel::class);
+        $this->modelLib = model(LibraryModel::class);
+        $this->modelSub = model(SubjectsModel::class);
+        $this->modelJoinSub = model(JoinSubjectsModel::class);
     }
     public function index()
     {
         
-       $data = $this->model->orderBy('id','asc')->findAll();
+       $data = $this->modelLib->orderBy('id','asc')->findAll();
        return $this->respond($data, 200);
     }
 
     public function show($id = null){
-        $data = $this->model->where('id', $id)->findAll();
-
-        if($data){
-            return $this->respond($data, 200);
-        }else{
-            return $this->failNotFound("Data tidak ditemukan untuk id $id");
-        }
+        $data=[
+            'title'=>'Detail Publikasi',
+            'subject'=>$this->modelLib->subjectperid($id),
+            'publication'=>$this->modelLib->find($id)
+        ];
+        return dd($data);
     }
+    public function search(){
+        
+        $data=[
+            'subject'=> $this->request->getVar('subject'),
+              'type'=> $this->request->getVar('type'),
+              'year'=> $this->request->getVar('year'),
+              'title'=> strtolower($this->request->getVar('title')),
+          ];
+        if($data['year'][0]===""){
+            $data['year']=null;
+        }
+        
+        $keyword = array_filter($data);
+        $filter = array_keys($keyword);
+        $result = $this->modelLib->front_search($filter, $keyword);   
+            
+        if($result){
+            return $this->respond($result, 200);
+        }else{
+            return $this->failNotFound("Data tidak ditemukan!");
+        }
+             
+        }
+         
+    
 
     // public function create(){
         

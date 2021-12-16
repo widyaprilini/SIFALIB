@@ -43,7 +43,8 @@
     <!-- Self-CSS -->
     <link rel="stylesheet" href="../css/admin/post-subjects.css" />
     <!-- Self-CSS -->
-    <title>Tambah Subjek</title>
+    <title>SIFALB - ADMIN | Subjek Publikasi</title>
+
   </head>
   <body>
     <main>
@@ -163,11 +164,11 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">
-                    Tambahkan Subjek
+                    Tambah Subjek Baru
                   </h5>
                 </div>
                 <div class="modal-body">
-                  <form action="/yeee nambah">
+                  <form action="/post-subject" method="post">
                     <div class="form-group mb-3">
                       <label for="recipient-name" class="col-form-label"
                         >Nama Subjek:</label
@@ -176,6 +177,7 @@
                         type="text"
                         class="form-control"
                         id="recipient-name"
+                        name="subject_name"
                       />
                       <small style="color: #e25151"
                         >&nbsp;* Pastikan Nama Yang Anda Masukkan Sudah
@@ -201,6 +203,19 @@
           </div>
         </div>
         <div class="content p-4 mt-5">
+        <?php if(session()->getFlashdata('success')):?>
+                <div class="alert alert-success">
+                    <?= session()->getFlashdata('success') ?>
+                </div>
+            <?php endif;?>
+            <?php if(session()->getFlashdata('error')):?>
+                <div class="alert alert-danger">
+                    <?= session()->getFlashdata('error') ?>
+                </div>
+            <?php endif;?>
+            <div style="color: red;">
+                    <?= $validation->listErrors() ?>
+                </div>
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -210,15 +225,16 @@
               </tr>
             </thead>
             <tbody>
+              <?php foreach($all_subjects as $sub): ?>
               <tr>
                 <th>1</th>
-                <td>Mark</td>
+                <td><?= $sub['subject_name'] ?></td>
                 <td>
-                  <a href="/yes-kehapus">
+                  <a href="/delete-subject/<?= $sub['id'] ?>">
                     <button
                       class="btn btn-danger"
                       type="button"
-                      onclick="return confirm('Yakin??')"
+                      onclick="return confirm('Yakin Hapus Subjek?')"
                     >
                       <span
                         class="material-icons-round"
@@ -230,186 +246,7 @@
                   </a>
                 </td>
               </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="/yes-kehapus">
-                    <button
-                      class="btn btn-danger"
-                      type="button"
-                      onclick="return confirm('Yakin??')"
-                    >
-                      <span
-                        class="material-icons-round"
-                        style="color: white; font-size: 20px"
-                      >
-                        delete
-                      </span>
-                    </button>
-                  </a>
-                </td>
-              </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
