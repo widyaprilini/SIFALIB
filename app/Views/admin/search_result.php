@@ -35,7 +35,7 @@
     <!-- Self-CSS -->
     <link rel="stylesheet" href="../css/admin/dashboard.css" />
     <!-- Self-CSS -->
-    <title>Login Admin</title>
+    <title>SIFALB - ADMIN</title>
   </head>
   <body>
     <main>
@@ -168,11 +168,6 @@
                     <?= session()->getFlashdata('success') ?>
                 </div>
             <?php endif;?>
-            <?php if(session()->getFlashdata('error')):?>
-                <div class="alert alert-danger">
-                    <?= session()->getFlashdata('error') ?>
-                </div>
-            <?php endif;?>
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -184,7 +179,7 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach($all as $all):?>
+              <?php foreach($search_result as $all):?>
               <tr data-href="/detail-publication/<?= $all['id']?>">
                 <th scope="row">1</th>
                 <td><?php echo $all['title']?></td>

@@ -87,7 +87,7 @@
               <button type="submit" class="btn btn-primary w-100 mt-4">
                 Masuk
               </button>
-              <a href="#">
+              <a href="/">
                 <button type="button" class="btn btn-secondary w-100 mt-3">
                     Kembali
                 </button>
