@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\LibraryModel;
+use PhpParser\Node\Stmt\Echo_;
 
 class LibraryController extends BaseController
 {
@@ -36,13 +37,14 @@ class LibraryController extends BaseController
               'title'=> $this->request->getVar('title'),
           ];
 
+
           return $this->respond($_POST);
 
         
         $keyword = array_filter($data);
         $filter = array_keys($keyword);
         $result = $this->modelLib->front_search($filter, $keyword);   
-         return dd($result)  ;
+      
         // if($result){
         //     return $this->respond($result, 200);
         // }else{
