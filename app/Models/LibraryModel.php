@@ -39,6 +39,8 @@ class LibraryModel extends Model{
     }
 
     public function front_search($filter, $keyword){
+
+        $raw_query = null;
         for($i=0;$i<count($filter);$i++){
             if($filter[$i]==='subject'){
                 for($j=0;$j<count($keyword['subject']);$j++){
@@ -60,8 +62,9 @@ class LibraryModel extends Model{
             }
             $raw_query_before = null;
         }
-        
-        if(in_array("subject",$filter)){
+
+        if($raw_query == null) $query = 'SELECT * FROM publications'; 
+        else if(in_array("subject",$filter)){
             $query = 'SELECT publications.* FROM publications '.implode(' AND ', $raw_query );
         }else{
             $query = 'SELECT publications.* FROM publications WHERE '.implode(' AND ', $raw_query );
