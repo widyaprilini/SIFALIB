@@ -33,7 +33,7 @@
         <label for="vehicle3">Sejak 2019</label><br>
         <input type="radio" id="vehicle3" name="year[0]" value="2018">
         <label for="vehicle3">Sejak 2018</label><br>
-        <input type="hidden" value="<?= date('Y')?>" name="year[1]">
+        <!-- <input type="hidden" value="<?= date('Y')?>" name="year[1]"> -->
         <!-- <input type="text" name="year[0]"> - <input type="text" name="year[1]"> -->
         </div>
         <div class="subject">Subjek<br>

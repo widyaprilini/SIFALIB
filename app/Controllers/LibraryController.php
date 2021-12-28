@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\LibraryModel;
+use PhpParser\Node\Stmt\Echo_;
 
 class LibraryController extends BaseController
 {
@@ -35,19 +36,33 @@ class LibraryController extends BaseController
               'year'=> $this->request->getVar('year'),
               'title'=> strtolower($this->request->getVar('title')),
           ];
+        
+        
+            $data['year'][1]=date('Y');
+        
+        return dd($data['year']);
         if($data['year'][0]===""){
             $data['year']=null;
+        }
+        if($data['title']===""){
+            $data['title']=null;
         }
         
         $keyword = array_filter($data);
         $filter = array_keys($keyword);
-        $result = $this->modelLib->front_search($filter, $keyword);   
-            
-        if($result){
-            return $this->respond($result, 200);
+        
+        if(empty($keyword)){
+            $result = $this->modelLib->orderBy('id','asc')->findAll();
         }else{
-            return $this->failNotFound("Data tidak ditemukan!");
+            $result = $this->modelLib->front_search($filter, $keyword);   
         }
+        return $this->respond($result, 200);
+            
+        
+        // if($data){
+        // }else{
+        //     return $this->failNotFound("Data tidak ditemukan!");
+        // }
              
         }
          
