@@ -33,21 +33,21 @@ class LibraryController extends BaseController
             'subject'=> $this->request->getVar('subject'),
               'type'=> $this->request->getVar('type'),
               'year'=> $this->request->getVar('year'),
-              'title'=> strtolower($this->request->getVar('title')),
+              'title'=> $this->request->getVar('title'),
           ];
-        if($data['year'][0]===""){
-            $data['year']=null;
-        }
+
+          return $this->respond($_POST);
+
         
         $keyword = array_filter($data);
         $filter = array_keys($keyword);
         $result = $this->modelLib->front_search($filter, $keyword);   
-            
-        if($result){
-            return $this->respond($result, 200);
-        }else{
-            return $this->failNotFound("Data tidak ditemukan!");
-        }
+         return dd($result)  ;
+        // if($result){
+        //     return $this->respond($result, 200);
+        // }else{
+        //     return $this->failNotFound("Data tidak ditemukan!");
+        // }
              
         }
          
