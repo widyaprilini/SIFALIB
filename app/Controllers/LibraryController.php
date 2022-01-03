@@ -36,7 +36,7 @@ class LibraryController extends BaseController
               'title'=> $this->request->getVar('title'),
           ];
 
-          return $this->respond($_POST);
+          return $this->respond($data);
 
         
         $keyword = array_filter($data);
