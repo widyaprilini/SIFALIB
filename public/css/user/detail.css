@@ -1,0 +1,213 @@
+/* *{
+    border : 1px solid black;
+} */
+
+body{
+    max-width: 100%;
+    min-height: 100vh;
+    /* background-color: #e4e4e4; */
+}
+
+nav{
+    height: 132px;
+    padding: 27px 75px;
+    color: #488CE0;
+    background-color: white;
+    width: 100%;
+}
+
+nav #nav-elements, #main-form{
+    width: 100%;
+    max-width: 1920px;
+}
+
+nav img#logo{
+    width: 95px;
+    height: 78px;
+}
+
+nav #language{
+    margin-right: 7px;
+}
+
+nav #language-options{
+    margin-right: 28px;
+}
+
+nav #login{
+    padding: 5px 28px;
+    border-radius: 7.86px;
+    border: 0.873239px solid #488CE0;
+    box-shadow :0px 0.873239px 6.11268px rgba(0, 0, 0, 0.49);
+    font-weight: 700;
+}
+
+main{
+    max-width: 1920px;
+    width: 100%;
+    flex-grow: 1;
+
+    color: #488CE0;
+}
+
+table{
+    width: 100%;
+    max-width: 1475px;
+    margin: 144px;
+    border-spacing: 0px;
+}
+
+table #table-title{
+    background-color: #488CE0;
+    color: #FFFFFF;
+    text-align: left;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    padding: 24px 74px;
+}
+
+#table-title h2{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 49px;
+    letter-spacing: -0.005em;
+
+    color: #FFFFFF;
+
+    max-width: 1112px;
+    margin-bottom: 10px;
+}
+
+#table-title h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.005em;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    max-width: 1112px;
+}
+
+th{
+    padding: 37px 0;
+    padding-left: 75px;
+    max-width: 400px;
+    margin: 0;
+}
+
+td{
+    padding: 37px 40px;
+}
+
+td p{
+    max-width: 928px;
+}
+
+td, th{
+    border-bottom: 1px solid rgba(72, 140, 224, 0.5);
+}
+
+tr#author , tr#subject{
+    background-color: rgba(72, 140, 224, 0.1);
+}
+
+tr#file th{
+    border-bottom-left-radius: 10px;
+    background-color: rgba(72, 140, 224, 0.1);
+}
+
+tr#file td{
+    border-bottom-right-radius: 10px;
+    background-color: rgba(72, 140, 224, 0.1);
+}
+
+.container {
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 114px;
+}
+
+.container a{
+    text-decoration: none;
+    color: white;
+    background-color: #488CE0;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.26);
+    border-radius: 4px;
+}
+
+footer{
+    background-color: #488CE0;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+footer .group{
+    padding: 90px 58px;
+}
+
+footer #whatsapp{
+    background-color: #FFFFFF;
+    color: #488CE0;
+    position: fixed;
+    bottom: 310px;
+    right: 20px;
+    border-radius: 200px;
+    padding: 10px;
+    box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.23);
+}
+
+footer #whatsapp span{
+    font-size: 60px;
+}
+
+footer h1{
+    margin-bottom: 15px;
+}
+
+footer a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#about, #contacts, #navigation {
+    padding: 0px 89px;
+}
+
+footer #about{
+    width: 100%;
+    max-width: 634px;
+}
+
+footer #navigation{
+    width: 100%;
+    max-width: 357px;
+}
+
+footer #navigation ul{
+    list-style: none;
+}
+
+footer #navigation ul li{
+    margin-bottom: 11px;
+}
+
+footer #contacts {
+    width: 100%;
+    max-width: 632px;
+}
+
+footer #contacts li {
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+footer #contacts span{
+    margin-right: 10px;
+}

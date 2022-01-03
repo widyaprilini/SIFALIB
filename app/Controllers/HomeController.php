@@ -15,6 +15,6 @@ class HomeController extends BaseController
         $data=[
             'subject'=>$this->modelSub->findAll()
         ];
-        return view('home', $data);
+        return view('main', $data);
     }
 }
