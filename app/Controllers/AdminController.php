@@ -44,7 +44,7 @@ class AdminController extends BaseController
     //show pdf controller//
     public function pdf_view($fileName){
         $url = base_url('/publications/'.$fileName);
-        $html = '<head><title>PDF VIEW</title></head><iframe src="'.$url.'" style="border:none; width: 100%; height: 100%"></iframe>';
+        $html = '<head> <link rel="icon" href="../img/logo.png"> <title>PDF VIEW</title></head><iframe src="'.$url.'" style="border:none; width: 100%; height: 100%"></iframe>';
         echo $html;
     }
     //show pdf controller end//

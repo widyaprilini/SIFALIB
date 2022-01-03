@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../css/utility.css">
-    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/user/utility.css">
+    <link rel="stylesheet" href="../css/user/detail.css">
     <title>SIFA-DIGILIB</title>
 </head>
 
 <body class="col justify-between align-center">
     <nav class="row justify-center">
         <div id="nav-elements" class="row justify-between">
-            <img src="../assets/logo.png" alt="" id="logo">
+            <img src="../img/logo.png" alt="" id="logo">
             <div class="group row align-center">
                 <div class="group row align-center">
                     <span class="material-icons-outlined" id="language">
@@ -42,7 +43,7 @@
                         Detail Karya Tulis Ilmiah
                     </h2>
                     <h3>
-                        Algoritma LALR Parser dalam Mendeteksi Struktur Kalimat Tunggal Bahasa Indonesia dengan Menggunakan POS Tagging
+                        <?= $publication['title']?>
                     </h3>
                 </caption>
             <tbody>
@@ -52,9 +53,9 @@
                         <p>:</p>
                     </th>
                     <td>
-                        <p>
-                            Algoritma LALR Parser dalam Mendeteksi Struktur Kalimat Tunggal Bahasa Indonesia dengan Menggunakan POS Tagging
-                        </p>
+                        
+                        <?= $publication['title']?>
+                        
                     </td>
                 </tr>
                 <tr id="author">
@@ -63,9 +64,9 @@
                         <p>:</p>
                     </th>
                     <td>
-                        <p>
-                            Muhammad Sholeh , M Raihan Almenata
-                        </p>
+                        
+                        <?= $publication['author']?>
+                        
                     </td>
                 </tr>
                 <tr id="year">
@@ -74,9 +75,9 @@
                         <p>:</p>
                     </th>
                     <td>
-                        <p>
-                            2018
-                        </p>
+                        
+                        <?= $publication['year']?>
+                        
                     </td>
                 </tr>
                 <tr id="subject">
@@ -85,9 +86,11 @@
                         <p>:</p>
                     </th>
                     <td>
-                        <p>
-                            Teknologi / Komputer
-                        </p>
+                        
+                        <?php foreach($subjects as $sub) :?>
+                            <?= $sub['subject_name']?> /
+                        <?php endforeach;?>   
+                        
                     </td>
                 </tr>
                 <tr id="type">
@@ -96,9 +99,9 @@
                         <p>:</p>
                     </th>
                     <td>
-                        <p>
-                            Tugas Akhir
-                        </p>
+                        
+                        <?= $publication['type']?>
+                        
                     </td>
                 </tr>
                 <tr id="file">
@@ -107,11 +110,11 @@
                         <p>:</p>
                     </th>
                     <td>
-                        <p>
-                            <a href="">
-                                nama_berkas.pdf
+                        
+                            <a href="/my-pdf/<?= $publication['file']?> " target="blank">
+                            <?= $publication['file']?>
                             </a>
-                        </p>
+                        
                     </td>
                 </tr>
             </tbody>

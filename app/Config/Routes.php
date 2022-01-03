@@ -35,9 +35,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'HomeController::index');
  //sehingga class library dapat menggunakan method di API
-$routes->group('/library', function ($routes) {
-    $routes->resource("libraryController");
-});
+// $routes->group('/library', function ($routes) {
+//     $routes->resource("libraryController");
+// });
 //front search
 $routes->post('/sifalibsearch', 'LibraryController::search');
 //detail search
