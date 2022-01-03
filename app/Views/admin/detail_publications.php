@@ -222,30 +222,34 @@
               </div>
             </div>
             <div class="form-group row mb-3">
-              <label for="subject" class="col-sm-2 col-form-label"
-                >Subjek Publikasi</label
-              >
-              <?php foreach($subjects as $sub) :?>
-              <div class="checkbox col-sm-10 d-flex align-items-center">
-                <label class="d-flex flex-row align-items-center col-sm-1"
-                  ><input
-                    type="checkbox"
-                    value="<?= $sub['id']?>"
-                    name="subject_id[]"
-                    <?php foreach($sub_checked as $checked): 
-                                if($sub['id'] === $checked['subject_id']){echo 'checked';}
-                            endforeach;?>
-                  />
-                  <h5><?= $sub['subject_name']?></h5>
-                </label>
-
+              <div class="col-sm-2">
+                <label for="subject" class="col-form-label"
+                  >Subjek Publikasi</label
+                >
               </div>
-              <?php endforeach;?>
-              <?php if(session()->getFlashdata('error_subject')):?>
-                <div class="invalid feedback" style="color: red;">
-                    <?= session()->getFlashdata('error_subject') ?>
+              <div class="col-sm-10" style="padding: 10px 7px;">
+                <?php foreach($subjects as $sub) :?>
+                <div class="checkbox col-sm-12 d-flex align-items-center">
+                  <label class="d-flex flex-row align-items-center col-sm-1"
+                    ><input
+                      type="checkbox"
+                      value="<?= $sub['id']?>"
+                      name="subject_id[]"
+                      <?php foreach($sub_checked as $checked): 
+                                  if($sub['id'] === $checked['subject_id']){echo 'checked';}
+                              endforeach;?>
+                    />
+                    <h5><?= $sub['subject_name']?></h5>
+                  </label>
+
                 </div>
-            <?php endif;?>
+                <?php endforeach;?>
+                <?php if(session()->getFlashdata('error_subject')):?>
+                  <div class="invalid feedback" style="color: red;">
+                      <?= session()->getFlashdata('error_subject') ?>
+                  </div>
+              <?php endif;?>
+              </div>
             </div>
             <div class="form-group row mb-2">
               
@@ -305,33 +309,6 @@
                   <?= $validation->getError('file'); ?>
                 </div>
               </div>
-              <button
-                class="
-                  btn btn-danger
-                  col-sm-1
-                  mb-3
-                  d-flex
-                  justify-content-center
-                  align-items-center
-                "
-                style="
-                  border-radius: 0px;
-                  border-top-right-radius: 10px;
-                  border-bottom-right-radius: 10px;
-                  width: 95px;
-                  height: 38px;
-                "
-                id="removeInput"
-                name="removeInput"
-              >
-                <span
-                  class="material-icons-round"
-                  style="color: white; font-size: 25px"
-                >
-                  delete
-                </span>
-              </button>
-              
             </div>
             <div class="form-group col d-flex justify-content-center">
               <a href="/delete-publication/<?= $publication['id'] ?>">
