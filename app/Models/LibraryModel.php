@@ -22,6 +22,10 @@ class LibraryModel extends Model{
     public function subjectperid($id){
         return $this->db->query('SELECT join_subjects.subject_id,subjects.subject_name  FROM join_subjects  JOIN subjects ON join_subjects.subject_id=subjects.id WHERE join_subjects.publications_id='.$id)->getResultArray();
     }
+    public function updatingAccess($id){
+        $sql = 'update publications set access=access+1 where id='.$id;
+        return $this->db->query($sql);
+    }
 
     private function getSub($subject_name){
         return $this->db->query("SELECT id FROM subjects WHERE subject_name LIKE '%".$subject_name."%'")->getRowArray();
