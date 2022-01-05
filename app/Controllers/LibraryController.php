@@ -23,7 +23,7 @@ class LibraryController extends BaseController
     public function show($id = null){
         $data=[
             'title'=>'Detail Publikasi',
-            'subject'=>$this->modelLib->subjectperid($id),
+            'subjects'=>$this->modelLib->subjectperid($id),
             'publication'=>$this->modelLib->find($id)
         ];
 
