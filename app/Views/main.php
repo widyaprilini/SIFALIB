@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link rel="stylesheet" href="/css/user/utility.css">
     <link rel="stylesheet" href="/css/user/main.css">
+    <link rel="stylesheet" href="/css/user/animation.css">
     <title>SIFA-DIGILIB</title>
 </head>
 <body class="col justify-between align-center">
@@ -47,7 +48,7 @@
                 <span class="material-icons-outlined" style="color: #488CE0;">
                     filter_alt
                 </span>
-                <button type="submit">TEMUKAN</button>
+                <button type="button">TEMUKAN</button>
             </div>
         </header>
         
@@ -189,6 +190,18 @@
                     </div>
                 </div>
                 <section id="results" class="col">
+                    <div class="result row justify-between">
+                        <div class="result-content col">
+                            <h3>Algoritma LALR Parser dalam Mendeteksi Struktur Kalimat Tunggal Bahasa Indonesia dengan Menggunakan POS Tagging</h3>
+                            <h4 class="author">Muhammad Sholeh, M Raihan Almenata</h4>
+                            <h5 class="tags row">
+                                <p class="year">2018</p>
+                                <p class="comma">,</p>
+                                <p class="result-type">Tugas Akhir</p>
+                            </h5>
+                        </div>
+                        <div class="result-decor"></div>                        
+                    </div>
                     <div class="result row justify-between">
                         <div class="result-content col">
                             <h3>Algoritma LALR Parser dalam Mendeteksi Struktur Kalimat Tunggal Bahasa Indonesia dengan Menggunakan POS Tagging</h3>

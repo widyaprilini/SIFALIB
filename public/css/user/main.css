@@ -377,6 +377,7 @@ header #search-bar{
     padding-right: 0px;
     box-shadow: 0px 0px 27.1102px rgba(0, 0, 0, 0.2);
     border-radius: 22.5918px;
+    margin-bottom: 45px;
 }
 
 .result .result-content{
@@ -408,6 +409,10 @@ header #search-bar{
 .result .tags{
     font-style: normal;
 font-weight: normal;
+}
+
+.result .comma{
+    margin: 0px 5px;
 }
 
 .result .result-decor{
