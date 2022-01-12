@@ -53,6 +53,10 @@ class LibraryModel extends Model{
                 $raw_query[]= "JOIN join_subjects ON join_subjects.publications_id=publications.id WHERE(". implode(' OR ', $raw_query_before).")";
             }
             if($filter[$i]==='year'){
+
+                if(count($keyword['year']) == 1)
+                $data['year'][1] = date('Y');
+
                 $raw_query[] = "(publications.year>=".$keyword['year'][0]." AND "."publications.year<=".$keyword['year'][1].")"; 
             }
             if($filter[$i]==="type"){

@@ -26,9 +26,7 @@ class LibraryController extends BaseController
             'subjects'=>$this->modelLib->subjectperid($id),
             'publication'=>$this->modelLib->find($id)
         ];
-
-        $updating = $this->modelLib->updatingAccess($id);
-        return view('detail', $data);
+        return dd($data);
     }
     public function search(){
         
@@ -39,19 +37,16 @@ class LibraryController extends BaseController
               'title'=> $this->request->getVar('title'),
           ];
 
-
-          return $this->respond($_POST);
-
         
         $keyword = array_filter($data);
         $filter = array_keys($keyword);
         $result = $this->modelLib->front_search($filter, $keyword);   
       
-        // if($result){
-        //     return $this->respond($result, 200);
-        // }else{
-        //     return $this->failNotFound("Data tidak ditemukan!");
-        // }
+        if($result){
+            return $this->respond($result, 200);
+        }else{
+            return $this->failNotFound("Data tidak ditemukan!");
+        }
              
         }
          
