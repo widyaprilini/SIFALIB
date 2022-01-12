@@ -276,49 +276,5 @@
         </div>
     </footer>
     <script src="/js/main.js"></script>
-    <script>
-
-        
-        
-        const form = document.getElementById('main-form');
-        const formData = new FormData(form);
-        const formInput = {};
-
-        document.getElementById('cards').addEventListener('click', () => {
-            const form = document.getElementById('main-form');
-            const formData = new FormData(form);
-
-            for (let entry of formData.entries()) {
-                if(entry[1]==""){
-                    formData.delete(entry[0]);
-                }
-            }
-        // })
-        
-
-        user = { 
-            "name": "Geeks for Geeks", 
-            "age": "23" 
-        }
-          
-        let options = {
-            method: 'POST',
-            // headers: {
-            //     'Content-Type': 
-            //         'application/json;charset=utf-8'
-            // },
-            body: formData
-        }
-  
-        // Fake api for making post requests
-        fetch(
-            "http://localhost:8080/sifalibsearch", 
-            options).then(res =>
-            res.json()).then( sth => {
-                console.log(sth)
-            })
-
-        })
-    </script>
 </body>
 </html>
