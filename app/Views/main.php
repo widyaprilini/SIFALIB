@@ -46,7 +46,7 @@
                     search
                 </span>
                 <input type="text" name="title" placeholder="Cari Judul Disini..">
-                <span class="material-icons-outlined" style="color: #488CE0;">
+                <span id="filter-button" class="material-icons-outlined" style="color: #488CE0;">
                     filter_alt
                 </span>
                 <button type="button">TEMUKAN</button>
@@ -156,9 +156,9 @@
                     <p>Urutkan Berdasarkan : </p>
                     <div class="wrapper">
                         <select name="" id="abjad">
-                            <option value="">Alphabet : </option>
-                            <option value="">A - Z</option>
-                            <option value="">Z - A</option>
+                            <option value="ascending">Alphabet : </option>
+                            <option value="ascending">A - Z</option>
+                            <option value="descending">Z - A</option>
                         </select>
                         <label class="arrow-wrapper row align-center" for="abjad">
                             <span class="material-icons-round arrow">
@@ -168,9 +168,9 @@
                     </div>
                     <div class="wrapper">
                         <select name="" id="tahun-terbit">
-                            <option value="">Waktu : </option>
-                            <option value="">Terbaru</option>
-                            <option value="">Terlama</option>
+                            <option value="-">Waktu : </option>
+                            <option value="terbaru">Terbaru</option>
+                            <option value="terlama">Terlama</option>
                         </select>
                         <label class="arrow-wrapper row align-center" for="tahun-terbit">
                             <span class="material-icons-round arrow">
@@ -181,7 +181,7 @@
                     <div class="wrapper">
                         <select name="" id="popularitas">
                             <option value="">Popularitas : </option>
-                            <option value="">Paling Populer</option>
+                            <option value="paling populer">Paling Populer</option>
                         </select>
                         <label class="arrow-wrapper row align-center" for="popularitas">
                             <span class="material-icons-round arrow">
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <section id="results" class="col">
-                    <div class="result row justify-between">
+                    <!-- <div class="result row justify-between">
                         <div class="result-content col">
                             <h3>Algoritma LALR Parser dalam Mendeteksi Struktur Kalimat Tunggal Bahasa Indonesia dengan Menggunakan POS Tagging</h3>
                             <h4 class="author">Muhammad Sholeh, M Raihan Almenata</h4>
@@ -214,7 +214,7 @@
                             </h5>
                         </div>
                         <div class="result-decor"></div>                        
-                    </div>
+                    </div> -->
                 </section>
             </div>
         </main>

@@ -105,6 +105,11 @@ header #search-bar{
     padding-left: 24px;
 }
 
+main#main-content{
+    transition: 0.5s ease;
+    min-height: 100px;
+}
+
 #search-bar input{
     flex-grow: 1;
 }
@@ -140,9 +145,14 @@ header #search-bar{
     cursor: pointer;
 }
 
+#search-bar #filter-button{
+    cursor: pointer;
+}
+
 #profile{
     padding: 156px 122px;
     position: relative;
+    transition: 0.5s ease;
 }
 
 #profile #video iframe{
@@ -186,6 +196,7 @@ header #search-bar{
 }
 
 #filter{
+    display: none;
     padding: 67px 195px;
     color: #488CE0;
 }
@@ -297,6 +308,8 @@ header #search-bar{
 #result-search {
     margin-bottom: 109px;
     color: #488CE0;
+    padding-top: 67px;
+    display: none;
 }
 
 #result-search #result-header h1 {
@@ -373,6 +386,10 @@ header #search-bar{
     padding: 59px 195px;
 }
 
+#results a{
+    text-decoration: none;
+}
+
 #results .result{
     padding-right: 0px;
     box-shadow: 0px 0px 27.1102px rgba(0, 0, 0, 0.2);
@@ -385,6 +402,7 @@ header #search-bar{
 }
 
 .result .result-content h3{
+    color: #488CE0;
     font-style: normal;
     font-weight: bold;
     font-size: 23px;

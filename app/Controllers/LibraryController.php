@@ -26,7 +26,8 @@ class LibraryController extends BaseController
             'subjects'=>$this->modelLib->subjectperid($id),
             'publication'=>$this->modelLib->find($id)
         ];
-        return dd($data);
+
+        return view ('detail', $data);
     }
     public function search(){
         
