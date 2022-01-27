@@ -55,7 +55,7 @@ class LibraryModel extends Model{
             if($filter[$i]==='year'){
 
                 if(count($keyword['year']) == 1)
-                $data['year'][1] = date('Y');
+                $keyword['year'][1] = date('Y');
 
                 $raw_query[] = "(publications.year>=".$keyword['year'][0]." AND "."publications.year<=".$keyword['year'][1].")"; 
             }
